@@ -61,6 +61,8 @@ Test device: MacBook Pro 13, 2.4 GHz Quad-Core Intel Core i5, 8 GB 2133 MHz LPDD
 
 The executable file: [symmetric_group](https://github.com/youxingz/symmetric_group_character/blob/master/symmetric_group)
 
-Output (n=2,...,34) files: [outputs](https://github.com/youxingz/symmetric_group_character/tree/master/output)
+Output files(n=2,...,30): [outputs](https://github.com/youxingz/symmetric_group_character/tree/master/output)
 
-Because of the size of output files, we compress these files from `1500M` to `374M` with 7z.
+Output files (n=2,...,34): [google drive](https://drive.google.com/drive/folders/1ylJFQBJ-OJvj6L-WZgzTHsCjsB8J0aUG?usp=sharing)
+
+Because of the size of output files, we compress these files from `1500M` to `416M` with zip.
