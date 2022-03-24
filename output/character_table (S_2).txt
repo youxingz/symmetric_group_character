@@ -1,0 +1,4 @@
+Character table of Sysmmetric Group (n=2)
+2X2	[2]	[1 1]	
+[2]	1	-1	
+[1 1]	1	1	
