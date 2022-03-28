@@ -57,6 +57,29 @@ For n=10,15,20,25,30,35, we have test results (not include file write time):
 
 Test device: MacBook Pro 13, 2.4 GHz Quad-Core Intel Core i5, 8 GB 2133 MHz LPDDR3
 
+## For Large N (N>30)
+
+We use the non-recursive algorithm and file buffer to implement a new version `alg_slice.go` for case $n>30$.
+
+### Example
+
+For $n=38$, we can use parameter `-s` to run our algorithm:
+```bash
+>> ./symmetric_group 38 -s
+```
+
+### Result:
+
+|n|time spend (ms)| file size (GB)|
+|-|-|-|
+|35|68287|0.74|
+|36|106441|1.08|
+|37|138312|1.59|
+|38|202597|2.33|
+
+We uploaded these file to [Google Drive](https://drive.google.com/drive/folders/1ylJFQBJ-OJvj6L-WZgzTHsCjsB8J0aUG?usp=sharing).
+
+
 ## Download
 
 The executable file: [symmetric_group](https://github.com/youxingz/symmetric_group_character/blob/master/symmetric_group)

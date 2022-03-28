@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"strconv"
 	alg "symmetric_group/alg_bigint"
+	alg_slice "symmetric_group/alg_slice"
 )
 
 func main() {
 	N, _ := strconv.Atoi(os.Args[1])
 	R := false
 	MultipleThread := false
+	SliceMode := false
 	if len(os.Args) > 2 {
 		if os.Args[2] == "-r" {
 			R = true
@@ -18,8 +20,11 @@ func main() {
 		if os.Args[2] == "-m" {
 			MultipleThread = true
 		}
+		if os.Args[2] == "-s" {
+			SliceMode = true
+		}
 	}
-
+ 
 	if N <= 0 {
 		fmt.Println("Please input the correct number (n > 0)")
 		return
@@ -29,14 +34,27 @@ func main() {
 		return
 	}
 
-	os.Mkdir("output", os.ModePerm)
+	if SliceMode {
+		dir := "output_large"
+		os.Mkdir(dir, os.ModePerm)
+		alg_slice.CharacterTableNonRecursiveMultipleThread(int8(N), dir)
+		return
+	}
 
-	filename := fmt.Sprintf("output/character_table (S_%d).txt", N)
+	dir := "output"
+	os.Mkdir(dir, os.ModePerm)
+
+	filename := fmt.Sprintf("%s/character_table (S_%d).txt", dir, N)
 	file, fileErr := os.Create(filename)
 	if fileErr != nil {
-			fmt.Println(fileErr)
-			return
+		panic(fileErr)
 	}
+	// close fo on exit and check for its returned error
+	defer func() {
+		if err := file.Close(); err != nil {
+				panic(err)
+		}
+	}()
 
 	// file = nil // test without print into file.
 
@@ -47,6 +65,6 @@ func main() {
 		fmt.Printf("[Character table of Sysmmetric Group (n=%d)] Non-Recursive Version\n", N)
 		alg.CharacterTableSchur(int8(N), file, MultipleThread)
 	}
-	fmt.Printf("Output file: output/%s\n", filename)
+	fmt.Printf("Output file: %s/%s\n", dir, filename)
 	fmt.Println("Done!")
 }

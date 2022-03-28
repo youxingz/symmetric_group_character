@@ -73,7 +73,6 @@ func CharacterTableSchur(n int8, file *os.File, multipleThread bool) { // just p
 	fmt.Println("Total Time Spent:", (time.Now().UnixNano() - start)/1000000, "ms")
 }
 
-var BIG_1 = b.NewInt(1)
 var BIG_0 = b.NewInt(0)
 
 func PowerSumToSchur(partition []int8) map[int32]b.Int {
