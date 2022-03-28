@@ -76,6 +76,8 @@ For $n=38$, we can use parameter `-s` to run our algorithm:
 |36|106441|1.08|
 |37|138312|1.59|
 |38|202597|2.33|
+|39|298056|3.39|
+|40|386991|4.91|
 
 We uploaded these file to [Google Drive](https://drive.google.com/drive/folders/1ylJFQBJ-OJvj6L-WZgzTHsCjsB8J0aUG?usp=sharing).
 
